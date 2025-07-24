@@ -1,0 +1,85 @@
+@import "../../style.scss";
+
+.skeleton {
+  @include themify($themes) {
+    background-color: themed("bg");
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+
+    .skeleton-avatar,
+    .skeleton-line,
+    .skeleton-image,
+    .skeleton-icon {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e6e6e6 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.2s ease-in-out infinite;
+      border-radius: 8px;
+    }
+
+    .skeleton-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .skeleton-line {
+      height: 12px;
+      width: 100%;
+      margin: 8px 0;
+    }
+
+    .skeleton-line.short {
+      width: 80px;
+    }
+
+    .skeleton-line.very-short {
+      width: 60px;
+    }
+
+    .skeleton-image {
+      height: 250px;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    .skeleton-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .user,
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .userInfo {
+      display: flex;
+      gap: 20px;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

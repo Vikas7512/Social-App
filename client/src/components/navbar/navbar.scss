@@ -1,0 +1,113 @@
+@import "../../style.scss";
+
+.navbar {
+  @include themify($themes) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid themed("border");
+    position: sticky;
+    top: 0;
+    background-color: themed("bg");
+    color: themed("textColor");
+    z-index: 999;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+
+      span {
+        font-weight: bold;
+        font-size: 20px;
+        color: themed("logo");
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid themed("border");
+        border-radius: 5px;
+        padding: 5px;
+
+        input {
+          border: none;
+          width: 500px;
+          background-color: transparent;
+          color: themed("textColor");
+
+          @media (max-width: 768px) {
+            width: 150px;
+          }
+
+          @media (max-width: 480px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        span {
+          @media (max-width: 480px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // Responsive adjustments
+    @media (max-width: 768px) {
+      padding: 10px;
+
+      .left {
+        gap: 15px;
+
+        span {
+          font-size: 18px;
+        }
+      }
+
+      .right {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      height: auto;
+      align-items: flex-start;
+      gap: 10px;
+
+      .left,
+      .right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .search {
+        display: none;
+      }
+    }
+  }
+}
